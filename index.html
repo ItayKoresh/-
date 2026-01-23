@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תוכנית הטיול שלי</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --accent: #f59e0b;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e40af, #2563eb);
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .day-group {
+            margin-bottom: 30px;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .activity-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            border-right: 4px solid var(--primary);
+        }
+
+        .activity-card:active {
+            transform: scale(0.98);
+        }
+
+        .checkbox-section {
+            display: flex;
+            align-items: flex-start;
+            padding-top: 5px;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .content-section {
+            flex-grow: 1;
+        }
+
+        .time-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: #dbeafe;
+            padding: 2px 8px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .activity-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .details {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            background-color: #f1f5f9;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+        }
+
+        .link-btn:before {
+            content: '📍';
+            margin-left: 6px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: var(--secondary);
+        }
+
+        /* סגנון כשמסמנים וי */
+        input[type="checkbox"]:checked + div .activity-name {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>הטיול המתוכנן שלי ✈️</h1>
+        <p>תוכנית יומית מפורטת</p>
+    </header>
+
+    <div class="day-group">
+        <div class="day-header">
+            <span>יום 1</span>
+            <span>01/05</span>
+        </div>
+
+        <div class="activity-card">
+            <div class="checkbox-section"><input type="checkbox"></div>
+            <div class="content-section">
+                <span class="time-tag">בוקר | 09:00</span>
+                <span class="activity-name">נחיתה וצ'ק אין</span>
+                <div class="details">איסוף מזוודות ונסיעה ברכבת למרכז</div>
+                <a href="https://www.google.com/maps" target="_blank" class="link-btn">ניווט / מידע</a>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="checkbox-section"><input type="checkbox"></div>
+            <div class="content-section">
+                <span class="time-tag">צהריים | 13:00</span>
+                <span class="activity-name">ארוחת צהריים</span>
+                <div class="details">שוק האוכל בורו (Borough Market)</div>
+                <a href="https://boroughmarket.org.uk" target="_blank" class="link-btn">ניווט / מידע</a>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <div class="checkbox-section"><input type="checkbox"></div>
+            <div class="content-section">
+                <span class="time-tag">ערב | 19:00</span>
+                <span class="activity-name">הצגה בווסט אנד</span>
+                <div class="details">"עלובי החיים" - להגיע חצי שעה קודם</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-group">
+        <div class="day-header">
+            <span>יום 2</span>
+            <span>02/05</span>
+        </div>
+
+        <div class="activity-card">
+            <div class="checkbox-section"><input type="checkbox"></div>
+            <div class="content-section">
+                <span class="time-tag">בוקר | 10:00</span>
+                <span class="activity-name">מוזיאון</span>
+                <div class="details">הגלריה הלאומית</div>
+                <a href="https://www.google.com/maps" target="_blank" class="link-btn">ניווט / מידע</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        נבנה בעזרת Gemini | 2026
+    </footer>
+</div>
+
+</body>
+</html>
