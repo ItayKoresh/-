@@ -3,153 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>בודפשט 2025 | משפחת קורש</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>בודפשט 2025 - משפחת קורש</title>
     <style>
+        /* עיצוב כללי - מראה של אפליקציה */
         :root {
-            --primary: #d32f2f;
-            --secondary: #2e7d32;
-            --accent: #ffa000;
-            --bg: #f8f9fa;
-            --text: #2c3e50;
+            --budapest-red: #d32f2f;
+            --gold: #d4af37;
+            --bg-gray: #f0f2f5;
         }
-        body { 
-            font-family: 'Assistant', sans-serif; 
-            background-color: var(--bg); 
-            margin: 0; padding: 0; color: var(--text);
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg-gray); margin: 0; padding-bottom: 50px; }
+        
+        /* כותרת עליונה מרשימה */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1551845041-63e8e76836ea?auto=format&fit=crop&w=800&q=80');
+            background-size: cover; background-position: center;
+            color: white; text-align: center; padding: 40px 20px;
+            border-bottom: 5px solid var(--gold);
         }
-        header {
-            background: linear-gradient(135deg, var(--primary), #b71c1c);
-            color: white; padding: 30px 20px; text-align: center;
-            border-bottom: 6px solid var(--accent);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+        .container { max-width: 500px; margin: -20px auto 0; padding: 0 15px; }
+
+        /* כרטיסיות ימים */
+        .day-box {
+            background: white; border-radius: 15px; overflow: hidden;
+            margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .container { max-width: 600px; margin: auto; padding: 20px; }
-        .day-header {
-            display: flex; align-items: center; justify-content: space-between;
-            background: #fff; padding: 12px 20px; border-radius: 15px;
-            margin-bottom: 15px; border-right: 8px solid var(--primary);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        .day-label {
+            background: var(--budapest-red); color: white;
+            padding: 10px 15px; font-weight: bold; display: flex; justify-content: space-between;
         }
-        .day-header h2 { margin: 0; font-size: 1.2rem; color: var(--primary); }
-        .card {
-            background: white; border-radius: 15px; padding: 20px;
-            margin-bottom: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        .activity-item {
+            padding: 15px; border-bottom: 1px solid #eee; display: flex; gap: 15px;
         }
-        .activity {
-            display: flex; gap: 15px; margin-bottom: 20px;
-            border-bottom: 1px solid #f0f0f0; padding-bottom: 15px;
+        .activity-item:last-child { border-bottom: none; }
+        .time { color: var(--budapest-red); font-weight: bold; font-size: 0.9em; min-width: 60px; }
+        
+        /* כפתורי ניווט מעוצבים */
+        .nav-btn {
+            display: inline-flex; align-items: center; background: #4285F4; color: white;
+            text-decoration: none; padding: 8px 16px; border-radius: 20px;
+            font-size: 0.85em; margin-top: 10px; font-weight: bold;
         }
-        .activity:last-child { border: none; }
-        .time-box {
-            background: #fdf2f2; color: var(--primary);
-            padding: 5px 10px; border-radius: 8px;
-            font-weight: bold; font-size: 0.85rem; height: fit-content;
-            min-width: 75px; text-align: center;
-        }
-        .info b { font-size: 1.05rem; display: block; margin-bottom: 4px; }
-        .info p { margin: 0; font-size: 0.95rem; color: #5a6c7d; }
-        .btn-map {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: #4285F4; color: white; text-decoration: none;
-            padding: 10px 18px; border-radius: 25px; font-size: 0.9rem;
-            margin-top: 10px; transition: transform 0.2s; font-weight: bold;
-        }
-        .food-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-        }
-        .food-card {
-            background: #fff; border: 1px solid #e0e0e0;
-            padding: 12px; border-radius: 12px; font-size: 0.9rem;
-        }
-        .food-card b { color: var(--secondary); display: block; }
-        .tag {
-            background: #e8f5e9; color: var(--secondary);
-            padding: 2px 8px; border-radius: 5px; font-size: 0.75rem;
-        }
+
+        /* רשימת מסעדות מהאקסל */
+        .food-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+        .food-item { background: #fffde7; border: 1px solid #ffe082; padding: 10px; border-radius: 10px; font-size: 0.85em; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1 style="margin:0; font-size: 2rem;">🇭🇺 בודפשט 2025</h1>
-    <p style="margin:5px 0 0; opacity: 0.9;">המסע המשפחתי של קורש</p>
-</header>
+<div class="hero">
+    <h1 style="margin:0;">🇭🇺 בודפשט 2025</h1>
+    <p style="margin:10px 0 0;">הטיול של משפחת קורש</p>
+</div>
 
 <div class="container">
-
-    <div class="day-header">
-        <h2>יום רביעי | 18.03</h2>
-        <span style="font-weight:bold; color:#666;">הגעה</span>
-    </div>
-    
-    <div class="card">
-        <div class="activity">
-            <div class="time-box">16:55</div>
-            <div class="info">
-                <b>🛫 טיסה לבודפשט (LY2367)</b>
-                <p>נחיתה משוערת ב-19:30. לא לשכוח לאסוף מזוודות.</p>
-            </div>
-        </div>
-        <div class="activity">
-            <div class="time-box">20:00</div>
-            <div class="info">
-                <b>🏨 מלון קמפינסקי קורווינוס</b>
-                <p>צ'ק-אין והתארגנות בחדרים.</p>
-                <a href="https://www.kempinski.com/en/hotel-corvinus-budapest?utm_medium=organic&utm_source=google&utm_campaign=KIBUD&utm_content=gmb&source=S308962248,https://maps.app.goo.gl/VuuXcC4L7ubk3T339" class="btn-map">📍 ניווט במפות</a>
+    <div class="day-box">
+        <div class="day-label"><span>יום רביעי 18.03</span> <span>🛫 נחיתה</span></div>
+        <div class="activity-item">
+            <div class="time">16:55</div>
+            <div>
+                <strong>טיסת אל על LY2367</strong>
+                <p style="margin:5px 0; font-size:0.9em; color:#666;">צ'ק אין במלון קמפינסקי</p>
+                <a href="https://www.kempinski.com/en/hotel-corvinus-budapest?utm_medium=organic&utm_source=google&utm_campaign=KIBUD&utm_content=gmb&source=S308962248,https://maps.app.goo.gl/VuuXcC4L7ubk3T339" class="nav-btn">📍 ניווט למלון</a>
             </div>
         </div>
     </div>
 
-    <div class="day-header">
-        <h2>יום שישי | 20.03</h2>
-        <span style="font-weight:bold; color:#666;">בודה העתיקה</span>
-    </div>
-    
-    <div class="card">
-        <div class="activity">
-            <div class="time-box">10:00</div>
-            <div class="info">
-                <b>🚍 נסיעה במעלה הגבעה</b>
-                <p>קו 16 מכיכר Deák Ferenc. לרדת בתחנת Szentháromság.</p>
-                <a href="https://maps.app.goo.gl/p1GoEk8wC88pYbVG9" class="btn-map">🚍 מסלול קו 16</a>
+    <div class="day-box">
+        <div class="day-label"><span>יום שישי 20.03</span> <span>🏰 בודה העתיקה</span></div>
+        <div class="activity-item">
+            <div class="time">10:00</div>
+            <div>
+                <strong>עלייה למצודה</strong>
+                <p style="margin:5px 0; font-size:0.9em; color:#666;">קו 16 מכיכר דאק פרנץ</p>
+                <a href="https://maps.app.goo.gl/p1GoEk8wC88pYbVG9" class="nav-btn">🚍 מפת קו 16</a>
             </div>
         </div>
-        <div class="activity">
-            <div class="time-box">12:00</div>
-            <div class="info">
-                <b>🍰 קפה Ruszwurm</b>
-                <p>העוגה המפורסמת בבית הקפה הכי עתיק בעיר.</p>
-                <a href="https://maps.app.goo.gl/JS4Hys2X1cc7RNni9" class="btn-map">📍 ניווט למקום</a>
+        <div class="activity-item">
+            <div class="time">12:00</div>
+            <div>
+                <strong>קפה Ruszwurm</strong>
+                <p style="margin:5px 0; font-size:0.9em; color:#666;">הקרמשניט המפורסם</p>
+                <a href="https://maps.app.goo.gl/JS4Hys2X1cc7RNni9" class="nav-btn">☕ ניווט לקפה</a>
             </div>
         </div>
     </div>
 
-    <h3 style="margin-right: 10px; border-right: 4px solid var(--accent); padding-right: 10px;">🍴 קולינריה (מהאקסל שלכם)</h3>
+    <h3 style="border-right: 4px solid var(--gold); padding-right: 10px;">🍴 מסעדות ובתי קפה</h3>
     <div class="food-grid">
-        <div class="food-card">
-            <b>Twentysix</b>
-            <span class="tag">גן טרופי</span>
-            <a href="https://www.google.com/maps/search/?api=1&query=Twentysix+Budapest" style="display:block; margin-top:5px; font-size:0.8rem; color:#4285F4;">ניווט ➔</a>
-        </div>
-        <div class="food-card">
-            <b>Macaron Heaven</b>
-            <span class="tag">פוטוגני</span>
-            <a href="https://www.google.com/maps/search/?api=1&query=Macaron+Heaven+Budapest" style="display:block; margin-top:5px; font-size:0.8rem; color:#4285F4;">ניווט ➔</a>
-        </div>
-        <div class="food-card">
-            <b>קפה תמר</b>
-            <span class="tag">כשר חלבי</span>
-            <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Tamar+Budapest" style="display:block; margin-top:5px; font-size:0.8rem; color:#4285F4;">ניווט ➔</a>
-        </div>
-        <div class="food-card">
-            <b>Meshuga</b>
-            <span class="tag">ישראלי</span>
-            <a href="https://www.google.com/maps/search/?api=1&query=Meshuga+Budapest" style="display:block; margin-top:5px; font-size:0.8rem; color:#4285F4;">ניווט ➔</a>
-        </div>
+        <div class="food-item"><b>Twentysix</b><br>גן טרופי מקורה</div>
+        <div class="food-item"><b>Macaron Heaven</b><br>מקרונים מעוצבים</div>
+        <div class="food-item"><b>קפה תמר</b><br>כשר חלבי</div>
+        <div class="food-item"><b>Nitavalo</b><br>שף בשרי (כשר)</div>
     </div>
-
-    <p style="text-align:center; color:#999; font-size: 0.8rem; margin-top: 40px;">עודכן ב-2026 עבור משפחת קורש</p>
 </div>
 
 </body>
