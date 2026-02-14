@@ -3,211 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>תוכנית הטיול שלי</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>בודפשט 2025 - משפחת קורש</title>
     <style>
-        :root {
-            --primary: #2563eb;
-            --secondary: #64748b;
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --text: #1e293b;
-            --accent: #f59e0b;
-        }
-
-        body {
-            font-family: 'Assistant', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #1e40af, #2563eb);
-            color: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .day-group {
-            margin-bottom: 30px;
-        }
-
-        .day-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--accent);
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            font-weight: 700;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        }
-
-        .activity-card {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 12px;
-            display: flex;
-            gap: 15px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-            border-right: 4px solid var(--primary);
-        }
-
-        .activity-card:active {
-            transform: scale(0.98);
-        }
-
-        .checkbox-section {
-            display: flex;
-            align-items: flex-start;
-            padding-top: 5px;
-        }
-
-        input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-        }
-
-        .content-section {
-            flex-grow: 1;
-        }
-
-        .time-tag {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            background: #dbeafe;
-            padding: 2px 8px;
-            border-radius: 5px;
-            display: inline-block;
-            margin-bottom: 5px;
-        }
-
-        .activity-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .details {
-            font-size: 0.9rem;
-            color: var(--secondary);
-            margin-bottom: 10px;
-        }
-
-        .link-btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 6px 12px;
-            background-color: #f1f5f9;
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid #e2e8f0;
-        }
-
-        .link-btn:before {
-            content: '📍';
-            margin-left: 6px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.8rem;
-            color: var(--secondary);
-        }
-
-        /* סגנון כשמסמנים וי */
-        input[type="checkbox"]:checked + div .activity-name {
-            text-decoration: line-through;
-            opacity: 0.6;
-        }
+        :root { --red: #c62828; --gold: #d4af37; --dark: #2c3e50; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; margin: 0; padding: 10px; }
+        header { background: var(--red); color: white; text-align: center; padding: 20px; border-radius: 10px; border-bottom: 5px solid var(--gold); margin-bottom: 20px; }
+        .day-card { background: white; border-radius: 12px; padding: 15px; margin-bottom: 20px; border-right: 6px solid var(--red); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .day-title { font-size: 1.2em; font-weight: bold; color: var(--red); border-bottom: 1px solid #eee; margin-bottom: 10px; padding-bottom: 5px; }
+        .activity { margin-bottom: 12px; padding-right: 5px; }
+        .time { font-weight: bold; color: #666; font-size: 0.9em; margin-left: 8px; }
+        .btn { display: inline-block; background: #4285F4; color: white; text-decoration: none; padding: 6px 12px; border-radius: 20px; font-size: 0.8em; margin-top: 5px; }
+        .food-section { background: #fffde7; padding: 15px; border-radius: 12px; border: 1px solid #ffe082; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>הטיול המתוכנן שלי ✈️</h1>
-        <p>תוכנית יומית מפורטת</p>
-    </header>
+<header>
+    <h1>🇭🇺 בודפשט 2025</h1>
+    <p>התוכנית של משפחת קורש</p>
+</header>
 
-    <div class="day-group">
-        <div class="day-header">
-            <span>יום 1</span>
-            <span>01/05</span>
-        </div>
-
-        <div class="activity-card">
-            <div class="checkbox-section"><input type="checkbox"></div>
-            <div class="content-section">
-                <span class="time-tag">בוקר | 09:00</span>
-                <span class="activity-name">נחיתה וצ'ק אין</span>
-                <div class="details">איסוף מזוודות ונסיעה ברכבת למרכז</div>
-                <a href="https://www.google.com/maps" target="_blank" class="link-btn">ניווט / מידע</a>
-            </div>
-        </div>
-
-        <div class="activity-card">
-            <div class="checkbox-section"><input type="checkbox"></div>
-            <div class="content-section">
-                <span class="time-tag">צהריים | 13:00</span>
-                <span class="activity-name">ארוחת צהריים</span>
-                <div class="details">שוק האוכל בורו (Borough Market)</div>
-                <a href="https://boroughmarket.org.uk" target="_blank" class="link-btn">ניווט / מידע</a>
-            </div>
-        </div>
-
-        <div class="activity-card">
-            <div class="checkbox-section"><input type="checkbox"></div>
-            <div class="content-section">
-                <span class="time-tag">ערב | 19:00</span>
-                <span class="activity-name">הצגה בווסט אנד</span>
-                <div class="details">"עלובי החיים" - להגיע חצי שעה קודם</div>
-            </div>
-        </div>
+<div class="day-card">
+    <div class="day-title">יום ד' 18.03 - הגעה</div>
+    <div class="activity">
+        <span class="time">16:55</span> <b>טיסה לבודפשט (LY2367)</b>
     </div>
-
-    <div class="day-group">
-        <div class="day-header">
-            <span>יום 2</span>
-            <span>02/05</span>
-        </div>
-
-        <div class="activity-card">
-            <div class="checkbox-section"><input type="checkbox"></div>
-            <div class="content-section">
-                <span class="time-tag">בוקר | 10:00</span>
-                <span class="activity-name">מוזיאון</span>
-                <div class="details">הגלריה הלאומית</div>
-                <a href="https://www.google.com/maps" target="_blank" class="link-btn">ניווט / מידע</a>
-            </div>
-        </div>
+    <div class="activity">
+        <span class="time">20:00</span> <b>צ'ק אין - מלון קמפינסקי</b>
+        <br><a href="https://www.kempinski.com/en/hotel-corvinus-budapest?utm_medium=organic&utm_source=google&utm_campaign=KIBUD&utm_content=gmb&source=S308962248,https://maps.app.goo.gl/VuuXcC4L7ubk3T339" class="btn">📍 ניווט למלון</a>
     </div>
+</div>
 
-    <footer>
-        נבנה בעזרת Gemini | 2026
-    </footer>
+<div class="day-card">
+    <div class="day-title">יום ה' 19.03 - הרובע היהודי</div>
+    <div class="activity">
+        <span class="time">10:00</span> <b>סיור בבית הכנסת הגדול</b>
+        <p>סיור ברובע היהודי ובאנדרטת הערבות הבוכיות.</p>
+    </div>
+</div>
+
+<div class="day-card">
+    <div class="day-title">יום ו' 20.03 - בודה והמצודה</div>
+    <div class="activity">
+        <b>עלייה למצודה (קו 16)</b>
+        <br><a href="https://maps.app.goo.gl/p1GoEk8wC88pYbVG9" class="btn">🚍 מסלול קו 16</a>
+    </div>
+    <div class="activity">
+        <span class="time">10:15</span> <b>מצודת הדייגים וכנסיית מתיאש</b>
+    </div>
+    <div class="activity">
+        <span class="time">12:00</span> <b>קפה Ruszwurm</b>
+        <p>הקרמשניט המפורסם בבית הקפה העתיק בעיר.</p>
+        <a href="https://maps.app.goo.gl/JS4Hys2X1cc7RNni9" class="btn">📍 ניווט לבית הקפה</a>
+    </div>
+</div>
+
+<div class="food-section">
+    <h3 style="margin-top:0">🍴 המלצות אוכל מהרשימה שלכם:</h3>
+    <p>• <b>Twentysix</b> - מסעדה בגן טרופי <a href="https://www.google.com/maps/search/?api=1&query=Twentysix+Budapest" style="color:#4285F4"> (מפה)</a></p>
+    <p>• <b>Macaron Heaven</b> - מקרונים מעוצבים <a href="https://www.google.com/maps/search/?api=1&query=Macaron+Heaven+Budapest" style="color:#4285F4"> (מפה)</a></p>
+    <p>• <b>קפה תמר</b> - כשר חלבי <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Tamar+Budapest" style="color:#4285F4"> (מפה)</a></p>
 </div>
 
 </body>
